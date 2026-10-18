@@ -50,7 +50,7 @@ a{color:var(--accent)}
     <p class="brand">CAPITALIGAL</p>
     <h1>החשבון הממומן נשבר שוב?<br>בוא נראה בדיוק מה שובר אותו.</h1>
     <p class="lead">סקירה אישית של העסקאות שלך מול כללי החשבון, תוך 3 ימי עסקים. בלי איתותים ובלי הבטחות. מה שהנתונים שלך מראים, ושלושה שינויים לשבועיים הקרובים.</p>
-    <a class="cta placeholder" id="order" href="#" aria-disabled="true" data-payment-link="PAYMENT_LINK">להזמנת סקירה</a>
+    <a class="cta" id="order" href="#" aria-disabled="true" data-payment-link="PAYMENT_LINK">להזמנת סקירה</a>
     <p class="price-line">₪490 כולל מע"מ · מחיר פיילוט</p>
   </div>
 </header>
@@ -146,7 +146,7 @@ a{color:var(--accent)}
 
 <section>
   <div class="wrap" style="text-align:center">
-    <a class="cta placeholder" href="#" aria-disabled="true" data-payment-link="PAYMENT_LINK">להזמנת סקירה · ₪490</a>
+    <a class="cta" href="#" aria-disabled="true" data-payment-link="PAYMENT_LINK">להזמנת סקירה · ₪490</a>
   </div>
 </section>
 </main>
@@ -161,8 +161,8 @@ a{color:var(--accent)}
   // Until a real payment link is configured, the CTA must not pretend to work.
   document.querySelectorAll('[data-payment-link]').forEach(function (a) {
     var link = a.getAttribute('data-payment-link');
-    if (/^https:\/\//.test(link)) { a.href = link; a.removeAttribute('aria-disabled'); a.classList.remove('placeholder'); }
-    else { a.addEventListener('click', function (e) { e.preventDefault(); }); a.title = 'קישור התשלום טרם הוגדר'; }
+    if (/^https:\/\//.test(link)) { a.href = link; a.removeAttribute('aria-disabled'); }
+    else { a.addEventListener('click', function (e) { e.preventDefault(); }); a.textContent = 'ההזמנה נפתחת בקרוב'; a.title = 'ההזמנה עדיין לא פתוחה'; }
   });
 </script>
 </body>
